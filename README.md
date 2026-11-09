@@ -61,7 +61,7 @@ DNS 需要（在域名服务商处）：
 | `index.html` | 功能卡片、更新日志、FAQ 文案 |
 | `terms.html` / `privacy.html` | 协议与隐私条款；改动时同步更新页首「最后更新」日期 |
 | `assets/img/hero-desktop.jpg` | 首页主视觉；重新生成见仓库外 `_preview/mock.html` |
-| 下载按钮 | 安装包发布后把 `.btn-soon` 改成 `<a href="...Releases...">` |
+| 下载按钮 | 指向 `https://update.explus.work/deskupdate/stable/x64/<版本>/zkdesk-<版本>-x64-full.zip`；发版后需同步改版本号 |
 
 ## 设计说明
 
