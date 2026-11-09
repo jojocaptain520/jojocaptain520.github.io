@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>火星桌面 ZkDesk — 让 Windows 桌面更整洁、更高效</title>
+<meta name="description" content="火星桌面（ZkDesk）是一款面向 Windows 10/11 的桌面整理工具：接管桌面图标与右键菜单，用「盒子」分区收纳，便签、待办、天气、资讯与工具箱常驻桌面，并提供网页屏保与在线更新。">
+<meta name="theme-color" content="#0A1122">
+<meta property="og:type" content="website">
+<meta property="og:title" content="火星桌面 ZkDesk — 让 Windows 桌面更整洁、更高效">
+<meta property="og:description" content="接管桌面图标与右键菜单，用「盒子」分区收纳，便签、待办、天气、资讯常驻桌面。支持 Windows 10/11 x64。">
+<meta property="og:image" content="assets/img/shot-settings.png">
+<!-- TODO: 替换为站点正式地址 -->
+<meta property="og:url" content="https://example.github.io/">
+<meta property="og:site_name" content="火星桌面 ZkDesk">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="火星桌面 ZkDesk">
+<meta name="twitter:description" content="面向 Windows 10/11 的桌面整理工具：桌面接管、盒子分区、便签待办、天气资讯与网页屏保。">
+<meta name="twitter:image" content="assets/img/shot-settings.png">
+<link rel="canonical" href="https://example.github.io/">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="apple-touch-icon" href="assets/img/logo-256.png">
+<link rel="stylesheet" href="assets/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "火星桌面",
+  "alternateName": "ZkDesk",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Windows 10, Windows 11",
+  "softwareVersion": "1.0.0.0",
+  "inLanguage": ["zh-CN", "en"],
+  "description": "面向 Windows 10/11 的桌面整理工具：接管桌面图标与右键菜单，用「盒子」分区收纳，便签、待办、天气、热点资讯与工具箱常驻桌面，并提供网页屏保与在线更新。",
+  "author": { "@type": "Organization", "name": "ZKSoft" },
+  "publisher": { "@type": "Organization", "name": "ZKSoft" }
+}
+</script>
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+<a class="skip-link" href="#features">跳到主要内容</a>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top" aria-label="火星桌面 首页">
+      <img src="assets/img/logo-256.png" alt="" width="32" height="32">
+      <span class="brand-text">
+        <strong>火星桌面</strong>
+        <em>ZkDesk</em>
+      </span>
+    </a>
+
+    <nav class="nav-links" aria-label="主导航">
+      <a href="#features">功能</a>
+      <a href="#gallery">界面</a>
+      <a href="#highlights">深入</a>
+      <a href="#changelog">更新日志</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+
+    <div class="nav-actions">
+      <!-- TODO: 替换为你的 GitHub 仓库地址 -->
+      <a class="btn btn-ghost nav-github" href="https://github.com/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.9 5.33.9 11.6c0 4.9 3.17 9.05 7.57 10.52.55.1.75-.24.75-.53v-2.06c-3.08.67-3.73-1.3-3.73-1.3-.5-1.28-1.23-1.62-1.23-1.62-1-.69.08-.68.08-.68 1.11.08 1.7 1.14 1.7 1.14.98 1.69 2.57 1.2 3.2.92.1-.72.38-1.2.7-1.48-2.46-.28-5.05-1.23-5.05-5.5 0-1.22.43-2.21 1.14-2.99-.11-.28-.5-1.42.11-2.96 0 0 .93-.3 3.05 1.14a10.5 10.5 0 0 1 5.56 0c2.12-1.44 3.05-1.14 3.05-1.14.61 1.54.22 2.68.11 2.96.71.78 1.14 1.77 1.14 2.99 0 4.28-2.6 5.22-5.07 5.49.4.34.75 1.02.75 2.06v3.05c0 .29.2.64.76.53a11.1 11.1 0 0 0 7.56-10.52C23.1 5.33 18.27.5 12 .5z"/></svg>
+        <span>GitHub</span>
+      </a>
+      <button class="btn btn-primary btn-soon" type="button" data-toast="1.0.0.0 安装包正在准备中，敬请期待。">
+        <span class="soon-dot" aria-hidden="true"></span>即将发布
+      </button>
+      <button class="nav-toggle" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="mobile-menu">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-menu" id="mobile-menu" hidden>
+    <a href="#features">功能</a>
+    <a href="#gallery">界面</a>
+    <a href="#highlights">深入</a>
+    <a href="#changelog">更新日志</a>
+    <a href="#faq">常见问题</a>
+    <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ Hero ============ -->
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <p class="eyebrow">
+          <span class="pill">v1.0.0.0</span>
+          <span class="eyebrow-text">Windows 10 / 11 · x64 · 简体中文 / English</span>
+        </p>
+        <h1>把杂乱的桌面<br>整理成顺手的工作台</h1>
+        <p class="lead">
+          火星桌面接管 Windows 桌面图标与右键菜单，用「盒子」分区收纳文件，
+          便签、待办、天气、热点资讯与工具箱常驻桌面——
+          每次开机，都从一张清爽的桌面开始。
+        </p>
+        <div class="hero-cta">
+          <button class="btn btn-primary btn-lg btn-soon" type="button" data-toast="1.0.0.0 安装包正在准备中，敬请期待。">
+            <span class="soon-dot" aria-hidden="true"></span>即将发布
+          </button>
+          <a class="btn btn-ghost btn-lg" href="#features">查看功能</a>
+        </div>
+        <ul class="hero-meta">
+          <li>完全本地运行</li>
+          <li>原生级桌面接管</li>
+          <li>中英双语界面</li>
+        </ul>
+      </div>
+
+      <div class="hero-visual">
+        <div class="glow" aria-hidden="true"></div>
+        <figure class="window">
+          <div class="window-bar">
+            <img class="window-icon" src="assets/img/logo-256.png" alt="" width="16" height="16">
+            <span class="window-title">设置中心 — 火星桌面</span>
+            <span class="window-actions" aria-hidden="true">
+              <i class="wa-min"></i><i class="wa-max"></i><i class="wa-close"></i>
+            </span>
+          </div>
+          <img src="assets/img/hero-shot.png" width="864" height="794"
+               alt="火星桌面设置中心：基本设置、界面外观、快捷键、屏保、系统设置与关于" loading="eager" decoding="async">
+        </figure>
+
+        <div class="float-card fc-note" aria-hidden="true">
+          <div class="fc-head"><span class="fc-dot" style="background:#F5B33C"></span>便签</div>
+          <div class="fc-line w-90"></div>
+          <div class="fc-line w-70"></div>
+          <div class="fc-line w-80"></div>
+        </div>
+        <div class="float-card fc-todo" aria-hidden="true">
+          <div class="fc-head"><span class="fc-dot" style="background:#37C58B"></span>待办清单</div>
+          <div class="fc-check"><span class="tick"></span><span class="fc-line w-70"></span></div>
+          <div class="fc-check"><span class="tick"></span><span class="fc-line w-55"></span></div>
+          <div class="fc-check off"><span class="tick"></span><span class="fc-line w-65"></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 数据条 ============ -->
+  <section class="stats" aria-label="产品概览">
+    <div class="container stats-inner">
+      <div class="stat"><strong>12</strong><span>个功能模块</span></div>
+      <div class="stat"><strong>6</strong><span>个可自定义全局快捷键</span></div>
+      <div class="stat"><strong>2</strong><span>种界面语言（内置）</span></div>
+      <div class="stat"><strong>4</strong><span>种壁纸模式，配色联动</span></div>
+    </div>
+  </section>
+
+  <!-- ============ 功能 ============ -->
+  <section class="section" id="features">
+    <div class="container">
+      <header class="section-head reveal">
+        <p class="kicker">功能</p>
+        <h2>一个程序，管好整张桌面</h2>
+        <p class="section-desc">从图标收纳到便签待办，从天气资讯到网页屏保——火星桌面把每天用得上的桌面能力，收进同一个托盘图标里。</p>
+      </header>
+
+      <div class="cards">
+        <article class="card reveal">
+          <span class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="12.5" rx="2"/><path d="M8 20h8M12 16.5V20"/></svg></span>
+          <h3>桌面接管</h3>
+          <p>在 WorkerW 下创建透明桌面窗口，图标、选择框、拖拽虚影全部由本程序绘制，壁纸仍由系统绘制。</p>
+        </article>
+
+        <article class="card reveal">
+          <span class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5 12 4l8.5 4.5v7L12 20l-8.5-4.5z"/><path d="M3.5 8.5 12 13l8.5-4.5M12 13v7"/></svg></span>
+          <h3>盒子分区</h3>
+          <p>把桌面图标拖进「盒子」即完成收纳。盒子可拖动、缩放、吸附窗口，位置与内容随退出保存。</p>
+        </article>
+
+        <article class="card reveal">
+          <span class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 3 8l9 5 9-5-9-5z"/><path d="m3 13 9 5 9-5"/></svg></span>
+          <h3>多标签盒子</h3>
+          <p>一个盒子容纳多个标签页，标签可拖动排序；折叠后只留标题栏，桌面瞬间腾出空间。</p>
+        </article>
+
+        <article class="card reveal">
+          <span class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3.5h9l5 5v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-16a1 1 0 0 1 1-1z"/><path d="M14 3.5v5h5M8 13h8M8 16.5h5"/></svg></span>
+          <h3>便签</h3>
+          <p>富文本编辑：加粗、斜体、下划线、颜色、高亮、字号、项目符号与图片；支持锁定、置顶与已关闭便签恢复。</p>
+        </article>
+
+        <article class="card reveal">
+          <span class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5h16M4 12h16M4 18.5h10"/><path d="m16.5 17 1.6 1.6 3-3.2" stroke-width="2"/></svg></span>
+          <h3>待办清单</h3>
+          <p>多清单切换、子任务（最多 3 层）、标签、备注、关联文件与截止日期着色，到期通过系统通知提醒。</p>
+        </article>
+
+        <article class="card reveal">
+          <span class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a4.5 4.5 0 0 1-.6-8.96 6 6 0 0 1 11.5 1.3A3.9 3.9 0 0 1 17.5 18z"/><path d="M9 21h6"/></svg></span>
+          <h3>天气</h3>
+          <p>实时天气、体感温度、空气质量、风向风力与日出日落，附多天预报；失败时提示而不阻塞界面。</p>
+        </article>
+
+        <article class="card reveal">
+          <span class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="14" height="15" rx="1.5"/><path d="M6.5 9h7M6.5 12.5h7M6.5 16h4"/><path d="m17 5 3 1.5v12L17 20"/></svg></span>
+          <h3>热点资讯</h3>
+          <p>多来源、多榜单随手切换，显示「更新于 时间 · 条数」；来源失效时自动切换并提示。</p>
+        </article>
+
+        <article class="card reveal">
+          <span class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94z"/></svg></span>
+          <h3>工具箱</h3>
+          <p>内置定时关机、便签、待办、天气与资讯；也能添加任意外部程序作为工具项，支持随程序启动。</p>
+        </article>
+
+        <article class="card reveal">
+          <span class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><circle cx="9" cy="9.5" r="1.2" fill="currentColor" stroke="none"/><circle cx="14.6" cy="8.6" r="1.2" fill="currentColor" stroke="none"/><circle cx="15.4" cy="14" r="1.2" fill="currentColor" stroke="none"/><circle cx="9.4" cy="14.6" r="1.2" fill="currentColor" stroke="none"/></svg></span>
+          <h3>主题与壁纸</h3>
+          <p>纯色、渐变、固定图片、目录轮播四种壁纸；背景色、外框、圆角、透明度与主题配色联动，切换即时生效。</p>
+        </article>
+
+        <article class="card reveal">
+          <span class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="13" rx="2"/><path d="M8.5 21h7M12 17.5V21"/><path d="M9.5 10.5 11 12l3.5-3.5"/></svg></span>
+          <h3>网页屏保</h3>
+          <p>基于 WTL + WebView2 的全屏网页屏保，可注册为系统屏保；只允许点击右上角按钮退出，避免误触。</p>
+        </article>
+
+        <article class="card reveal">
+          <span class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="19" height="12" rx="2"/><path d="M6 10h.01M9.5 10h.01M13 10h.01M16.5 10h.01M6 14h12"/></svg></span>
+          <h3>全局快捷键</h3>
+          <p>整理桌面、添加便签、待办、天气、资讯、工具箱共 6 个全局快捷键，点输入框按下组合键即可自定义。</p>
+        </article>
+
+        <article class="card reveal">
+          <span class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11a8 8 0 1 0-2.3 6"/><path d="M20 5v6h-6"/></svg></span>
+          <h3>在线更新</h3>
+          <p>独立更新器完成清单校验、SHA-256 与签名验证、断点续传与失败回滚，更新历史可随时回看。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 界面 ============ -->
+  <section class="section section-alt" id="gallery">
+    <div class="container">
+      <header class="section-head reveal">
+        <p class="kicker">界面</p>
+        <h2>看得见的细节</h2>
+        <p class="section-desc">设置中心采用卡片式分组与浅色主题，下拉框、圆角与配色统一；切换语言即时生效，无需重启。</p>
+      </header>
+
+      <div class="gallery">
+        <figure class="shot reveal">
+          <button class="shot-frame" type="button" data-lightbox="assets/img/shot-settings.png" data-caption="设置中心 · 基本设置与更新">
+            <img src="assets/img/shot-settings.png" width="864" height="852" alt="设置中心基本设置与更新分组" decoding="async">
+            <span class="shot-zoom" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8.5v5M8.5 11h5"/></svg>
+            </span>
+          </button>
+          <figcaption><strong>设置中心</strong><span>基本设置、更新检查、更新历史集中在同一处</span></figcaption>
+        </figure>
+        <figure class="shot reveal">
+          <button class="shot-frame" type="button" data-lightbox="assets/img/shot-saver.png" data-caption="屏保 · 网页屏保设置">
+            <img src="assets/img/shot-saver.png" width="880" height="868" alt="屏保设置页" decoding="async">
+            <span class="shot-zoom" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8.5v5M8.5 11h5"/></svg>
+            </span>
+          </button>
+          <figcaption><strong>网页屏保</strong><span>启用、等待时间、恢复需登录、保持常亮与立即预览</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 深入 ============ -->
+  <section class="section" id="highlights">
+    <div class="container">
+      <header class="section-head reveal">
+        <p class="kicker">深入</p>
+        <h2>不是换一张壁纸，而是重做桌面层</h2>
+        <p class="section-desc">火星桌面不替代资源管理器，只在桌面这一层接管绘制与交互——所以原生右键菜单、拖拽、重命名这些习惯都还在。</p>
+      </header>
+
+      <div class="deep-grid">
+        <article class="deep reveal">
+          <h3>与资源管理器一致的交互</h3>
+          <ul class="ticks">
+            <li>96 DPI 下格子 75×98，图标、文字与选中框位置逐项对齐资源管理器</li>
+            <li>单击选中、空白拖框、Ctrl 多选、Shift 连选、悬停高亮</li>
+            <li>F2 重命名：换行、尺寸与「按最后一个点选中基名」规则一致</li>
+            <li>右键「显示更多选项」转发系统原生菜单，公共桌面路径项不再残缺</li>
+          </ul>
+        </article>
+
+        <article class="deep reveal">
+          <h3>盒子：桌面的收纳单元</h3>
+          <ul class="ticks">
+            <li>拖入即收纳，落点插入或排在最后可配置</li>
+            <li>盒内支持大/中/小图标、排序、重命名、删除与原生右键菜单</li>
+            <li>标题栏可折叠、置顶、关闭，配色跟随主题</li>
+            <li>盒子位置、尺寸、标签与盒内排布随退出保存，下次启动原样恢复</li>
+          </ul>
+        </article>
+
+        <article class="deep reveal">
+          <h3>常驻桌面的效率组件</h3>
+          <ul class="ticks">
+            <li>便签支持富文本、图片与多色标签，关闭后仍可恢复</li>
+            <li>待办支持子任务、标签、备注、关联文件与到期提醒</li>
+            <li>天气与热点资讯自动刷新，来源失效自动降级</li>
+            <li>6 个全局快捷键，随手叫出常用面板</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 更新日志 ============ -->
+  <section class="section section-alt" id="changelog">
+    <div class="container narrow">
+      <header class="section-head reveal">
+        <p class="kicker">更新日志</p>
+        <h2>版本记录</h2>
+      </header>
+
+      <div class="changelog-grid">
+        <ol class="timeline">
+          <li class="reveal">
+            <div class="tl-head">
+              <span class="tl-version">v1.0.0.0</span>
+              <span class="tl-tag">正式版</span>
+            </div>
+            <p class="tl-sub">首个对外发布版本</p>
+            <ul class="ticks">
+              <li>新增设置中心「屏保」页：启用、等待时间、恢复需登录、保持常亮、跳过锁屏、网页目录与立即预览</li>
+              <li>新增「更新」分组：静默检查更新、立即更新与更新历史弹窗</li>
+              <li>版本变化自动记录更新历史，并保存检查时获取的更新说明</li>
+              <li>「关于」页重做：程序图标、版本号胶囊、分隔线与官网链接配色</li>
+              <li>桌面右键菜单改用真正的父文件夹 IContextMenu，修复公共桌面等路径菜单残缺</li>
+              <li>图标重命名编辑框尺寸、文本换行与基名选中规则对齐资源管理器</li>
+              <li>设置中心下拉框统一样式，选中项改为内缩圆角块</li>
+            </ul>
+          </li>
+        </ol>
+
+        <figure class="shot shot-inline reveal">
+          <button class="shot-frame" type="button" data-lightbox="assets/img/shot-update.png" data-caption="更新历史 · 版本变化自动记录">
+            <img src="assets/img/shot-update.png" width="864" height="852" alt="更新历史弹窗：版本号、日期与更新说明" decoding="async">
+            <span class="shot-zoom" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8.5v5M8.5 11h5"/></svg>
+            </span>
+          </button>
+          <figcaption><strong>更新历史</strong><span>每次版本变化自动记录，版本号 + 日期 + 更新说明</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 系统要求 + FAQ ============ -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="two-col">
+        <div class="reveal">
+          <header class="section-head left">
+            <p class="kicker">系统要求</p>
+            <h2>运行环境</h2>
+          </header>
+          <dl class="spec">
+            <div><dt>操作系统</dt><dd>Windows 10 / Windows 11，64 位（x64）</dd></div>
+            <div><dt>屏幕</dt><dd>支持高 DPI 缩放与多显示器布局</dd></div>
+            <div><dt>运行库</dt><dd>屏保组件需要 WebView2 运行时（Win10 1903+ 通常已内置）</dd></div>
+            <div><dt>权限</dt><dd>主体功能普通用户权限即可；「系统设置」分组需管理员</dd></div>
+            <div><dt>数据目录</dt><dd><code>%LOCALAPPDATA%\ZkDesk</code></dd></div>
+            <div><dt>界面语言</dt><dd>简体中文 / English（随程序内置，无需额外安装）</dd></div>
+          </dl>
+        </div>
+
+        <div class="reveal">
+          <header class="section-head left">
+            <p class="kicker">常见问题</p>
+            <h2>你可能想知道</h2>
+          </header>
+          <div class="faq">
+            <details>
+              <summary>会替代 Windows 资源管理器吗？</summary>
+              <p>不会。火星桌面只在桌面这一层接管图标绘制与右键菜单，资源管理器、任务栏和其他系统组件照常工作，卸载后桌面立刻回到系统默认样式。</p>
+            </details>
+            <details>
+              <summary>桌面上原有的图标会丢失吗？</summary>
+              <p>不会。图标仍然是系统桌面上的真实文件与快捷方式，程序只是接管了绘制与交互；拖进盒子的图标只是换了摆放位置。</p>
+            </details>
+            <details>
+              <summary>支持多显示器和 4K 高 DPI 吗？</summary>
+              <p>支持。图标按显示器分区布局，图标、文字与盒子尺寸跟随系统 DPI 同步缩放。</p>
+            </details>
+            <details>
+              <summary>需要联网吗？</summary>
+              <p>核心整理功能完全本地运行。联网仅用于检查更新、获取天气与热点资讯；天气与资讯来源失效时会自动降级并提示。</p>
+            </details>
+            <details>
+              <summary>屏保为什么需要 WebView2？</summary>
+              <p>网页屏保使用 WebView2 渲染网页内容。Windows 10 1903 及以上版本通常已内置运行时；未安装时屏保会给出提示。</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 下载 CTA ============ -->
+  <section class="cta-band">
+    <div class="container cta-inner reveal">
+      <img class="cta-logo" src="assets/img/logo-256.png" alt="" width="72" height="72">
+      <div class="cta-copy">
+        <h2>火星桌面 1.0.0.0</h2>
+        <p>安装包正在准备中。你可以先关注仓库，发布后第一时间收到通知。</p>
+      </div>
+      <div class="cta-actions">
+        <button class="btn btn-primary btn-lg btn-soon" type="button" data-toast="1.0.0.0 安装包正在准备中，敬请期待。">
+          <span class="soon-dot" aria-hidden="true"></span>即将发布
+        </button>
+        <a class="btn btn-outline btn-lg" href="https://github.com/" target="_blank" rel="noopener">关注更新</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <img src="assets/img/logo-256.png" alt="" width="36" height="36">
+      <div>
+        <strong>火星桌面 <em>ZkDesk</em></strong>
+        <p>让 Windows 桌面更整洁、更高效的桌面整理工具。</p>
+      </div>
+    </div>
+
+    <nav class="footer-links" aria-label="页脚导航">
+      <div>
+        <h4>产品</h4>
+        <a href="#features">功能</a>
+        <a href="#gallery">界面</a>
+        <a href="#changelog">更新日志</a>
+      </div>
+      <div>
+        <h4>支持</h4>
+        <a href="#faq">常见问题</a>
+        <a href="#faq">系统要求</a>
+        <!-- TODO: 替换为反馈邮箱 / Issues 地址 -->
+        <a href="https://github.com/" target="_blank" rel="noopener">问题反馈</a>
+      </div>
+      <div>
+        <h4>关于</h4>
+        <a href="https://github.com/" target="_blank" rel="noopener">GitHub 仓库</a>
+        <span class="footer-muted">版本 1.0.0.0</span>
+      </div>
+    </nav>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>版权所有 © <span id="year">2026</span> ZKSoft · 保留所有权利</p>
+    <p class="footer-muted">本站由 GitHub Pages 托管</p>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" hidden>
+  <button class="lb-close" type="button" aria-label="关闭大图">&times;</button>
+  <figure>
+    <img alt="">
+    <figcaption></figcaption>
+  </figure>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
