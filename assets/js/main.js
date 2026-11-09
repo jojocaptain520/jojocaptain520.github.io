@@ -142,4 +142,26 @@
       if (e.key === 'Escape' && !lightbox.hidden) closeLightbox();
     });
   }
+
+  /* 8. 从更新源读取最新版本 / 包大小，保证页面显示的版本号与实际下载包一致。
+        下载地址固定为 .../latest.zip，发版时覆盖即可；版本号以 latest.json 为准。
+        请求失败时保留 HTML 里的静态默认值，页面不会出现空白或错乱。 */
+  var versionEls = document.querySelectorAll('.js-version');
+  var sizeEls = document.querySelectorAll('.js-size');
+  if ((versionEls.length || sizeEls.length) && window.fetch) {
+    fetch('https://update.explus.work/deskupdate/stable/x64/latest.json', { cache: 'no-store' })
+      .then(function (resp) { return resp.ok ? resp.json() : null; })
+      .then(function (manifest) {
+        if (!manifest) return;
+        if (manifest.version) {
+          versionEls.forEach(function (el) { el.textContent = String(manifest.version); });
+        }
+        var pkg = manifest.packages && manifest.packages[0];
+        if (pkg && pkg.size) {
+          var mb = Math.max(1, Math.ceil(pkg.size / 1048576));
+          sizeEls.forEach(function (el) { el.textContent = String(mb); });
+        }
+      })
+      .catch(function () { /* 保留静态默认值 */ });
+  }
 })();
