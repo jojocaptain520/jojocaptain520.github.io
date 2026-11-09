@@ -35,6 +35,13 @@ python -m http.server 8080 --directory site
 3. 仓库 Settings → Pages → Source 选 `Deploy from a branch`，分支 `main`、目录 `/ (root)`
 4. 等 1–2 分钟，访问 `https://<用户名>.github.io/zkdesk-site/`
 
+本目录已是一个独立的 git 仓库（含首次提交）。可直接用脚本推送：
+
+```powershell
+.\publish.ps1 -User <你的GitHub用户名>              # 仓库名默认 zkdesk-site
+.\publish.ps1 -User <你的GitHub用户名> -Repo rorsoft
+```
+
 自定义域名：在仓库根放 `CNAME` 文件，内容为域名（如 `zkdesk.example.com`），并在 DNS 添加 CNAME 记录指向 `<用户名>.github.io`。
 
 ## 待替换的占位内容
