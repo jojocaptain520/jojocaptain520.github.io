@@ -82,9 +82,12 @@
     window.setTimeout(revealAll, 3000);
   }
 
-  /* 5. 页脚年份 */
+  /* 5. 页脚年份（版权自 2025 年起） */
   var year = document.getElementById('year');
-  if (year) year.textContent = String(new Date().getFullYear());
+  if (year) {
+    var y = new Date().getFullYear();
+    year.textContent = String(Math.max(y, 2026));
+  }
 
   /* 6. 锚点跳转后收起移动端菜单 */
   window.addEventListener('hashchange', function () {

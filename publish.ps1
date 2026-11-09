@@ -1,12 +1,12 @@
 # 一键把本站推到 GitHub 并启用 Pages
 # 用法：
-#   .\publish.ps1 -User <你的GitHub用户名>                  # 仓库名默认 zkdesk-site
-#   .\publish.ps1 -User <你的GitHub用户名> -Repo rorsoft    # 指定仓库名
+#   .\publish.ps1                                  # 默认推到 jojocaptain520/jojocaptain520.github.io
+#   .\publish.ps1 -Repo zkdesk-site                # 指定其它仓库名
 # 前提：已在本机登录 GitHub（git credential manager 或 gh auth login）
 
 param(
-  [Parameter(Mandatory = $true)][string]$User,
-  [string]$Repo = 'zkdesk-site',
+  [string]$User = 'jojocaptain520',
+  [string]$Repo = 'jojocaptain520.github.io',
   [string]$Branch = 'main'
 )
 
@@ -41,6 +41,7 @@ Write-Host ""
 Write-Host "推送完成。接下来（只需做一次）：" -ForegroundColor Green
 Write-Host "  1. 打开 https://github.com/$User/$Repo/settings/pages"
 Write-Host "  2. Source 选 Deploy from a branch → 分支 $Branch → 目录 / (root) → Save"
-Write-Host "  3. 等 1-2 分钟，访问 $pagesUrl" -ForegroundColor Cyan
+Write-Host "  3. Custom domain 填 www.explus.work，勾选 Enforce HTTPS"
+Write-Host "  4. 等 1-2 分钟，访问 https://www.explus.work/" -ForegroundColor Cyan
 Write-Host ""
-Write-Host "提示：仓库需要是 Public，GitHub Pages 才对免费账号开放。" -ForegroundColor DarkYellow
+Write-Host "提示：仓库需要是 Public，GitHub Pages 才对免费账号开放；CNAME 文件已包含 www.explus.work。" -ForegroundColor DarkYellow

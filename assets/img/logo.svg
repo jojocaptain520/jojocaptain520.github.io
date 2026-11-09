@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-label="火星桌面 ZkDesk">
+  <defs>
+    <linearGradient id="zk-blue" x1="120" y1="30" x2="150" y2="120" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6FBCFF"/>
+      <stop offset="1" stop-color="#1F6FD1"/>
+    </linearGradient>
+    <linearGradient id="zk-orange" x1="70" y1="70" x2="30" y2="170" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFBE6B"/>
+      <stop offset="1" stop-color="#E4681A"/>
+    </linearGradient>
+    <linearGradient id="zk-green" x1="120" y1="220" x2="200" y2="120" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#A8DE63"/>
+      <stop offset="1" stop-color="#4E9E27"/>
+    </linearGradient>
+  </defs>
+
+  <g fill="none" stroke-width="34" stroke-linecap="round" stroke-linejoin="round">
+    <!-- 上：蓝 -->
+    <path d="M224 128 L176 44.86 L80 44.86" stroke="url(#zk-blue)"/>
+    <!-- 左：橙 -->
+    <path d="M80 44.86 L32 128 L80 211.14" stroke="url(#zk-orange)"/>
+    <!-- 右下：绿 -->
+    <path d="M80 211.14 L176 211.14 L224 128" stroke="url(#zk-green)"/>
+  </g>
+</svg>
