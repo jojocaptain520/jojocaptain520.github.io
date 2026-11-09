@@ -29,7 +29,7 @@
   "alternateName": "ZkDesk",
   "applicationCategory": "UtilitiesApplication",
   "operatingSystem": "Windows 10, Windows 11",
-  "softwareVersion": "1.0.0.1",
+  "softwareVersion": "1.1.0.1",
   "inLanguage": ["zh-CN", "en"],
   "description": "面向 Windows 10/11 的桌面整理工具：接管桌面图标与右键菜单，用「盒子」分区收纳，便签、待办、天气、热点资讯与工具箱常驻桌面，并提供网页屏保与在线更新。",
   "author": { "@type": "Organization", "name": "explus.work" },
@@ -96,7 +96,7 @@
     <div class="container hero-inner">
       <div class="hero-copy">
         <p class="eyebrow">
-          <span class="pill">v<span class="js-version">1.0.0.1</span></span>
+          <span class="pill">v<span class="js-version">1.1.0.1</span></span>
           <span class="pill pill-free">免费试用</span>
           <span class="eyebrow-text">Windows 10 / 11 · x64 · 简体中文 / English</span>
         </p>
@@ -316,6 +316,19 @@
         <ol class="timeline">
           <li class="reveal">
             <div class="tl-head">
+              <span class="tl-version">v1.1.0.1</span>
+              <span class="tl-tag">正式版</span>
+            </div>
+            <p class="tl-sub">系统设置支持普通权限修改</p>
+            <ul class="ticks">
+              <li>设置中心里需要管理员权限的系统设置不再灰掉：已提权直接改，普通权限经「ZkDesk 服务」完成</li>
+              <li>服务未安装时点击会提示安装一次（只需一次管理员授权），装好自动继续，之后不再弹 UAC</li>
+              <li>屏保「跳过锁屏界面」同样支持服务安装引导；取消安装只把勾选拨回，不再误报失败</li>
+              <li>修复服务端写注册表的类型名不匹配，导致经服务修改系统设置必然失败</li>
+            </ul>
+          </li>
+          <li class="reveal">
+            <div class="tl-head">
               <span class="tl-version">v1.0.0.1</span>
               <span class="tl-tag">正式版</span>
             </div>
@@ -358,7 +371,7 @@
             <div><dt>操作系统</dt><dd>Windows 10 / Windows 11，64 位（x64）</dd></div>
             <div><dt>屏幕</dt><dd>支持高 DPI 缩放与多显示器布局</dd></div>
             <div><dt>运行库</dt><dd>屏保组件需要 WebView2 运行时（Win10 1903+ 通常已内置）</dd></div>
-            <div><dt>权限</dt><dd>主体功能普通用户权限即可；「系统设置」分组需管理员</dd></div>
+            <div><dt>权限</dt><dd>主体功能普通用户权限即可；系统设置与屏保里的机器级设置会通过「ZkDesk 服务」完成（首次会提示安装一次）</dd></div>
             <div><dt>数据目录</dt><dd><code>%LOCALAPPDATA%\ZkDesk</code></dd></div>
             <div><dt>界面语言</dt><dd>简体中文 / English（随程序内置，无需额外安装）</dd></div>
           </dl>
@@ -401,7 +414,7 @@
     <div class="container cta-inner reveal">
       <img class="cta-logo" src="assets/img/logo.svg" alt="" width="72" height="72">
       <div class="cta-copy">
-        <h2>火星桌面 <span class="js-version">1.0.0.1</span></h2>
+        <h2>火星桌面 <span class="js-version">1.1.0.1</span></h2>
         <p>免费试用，无需注册账号。下载全量包解压即用，后续版本可在程序内检查更新。</p>
       </div>
       <div class="cta-actions">
@@ -444,7 +457,7 @@
         <a href="https://github.com/jojocaptain520/jojocaptain520.github.io" target="_blank" rel="noopener">GitHub 仓库</a>
         <a href="terms.html">用户协议</a>
         <a href="privacy.html">隐私政策</a>
-        <span class="footer-muted">版本 <span class="js-version">1.0.0.1</span> · 免费试用</span>
+        <span class="footer-muted">版本 <span class="js-version">1.1.0.1</span> · 免费试用</span>
       </div>
     </nav>
   </div>
