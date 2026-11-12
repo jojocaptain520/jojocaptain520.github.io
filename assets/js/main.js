@@ -164,4 +164,25 @@
       })
       .catch(function () { /* 保留静态默认值 */ });
   }
+  /* 9. 更新日志：中间的旧版本默认收起，点「⋯」展开/收起 */
+  var timeline = document.querySelector('.timeline');
+  var tlToggle = timeline ? timeline.querySelector('.tl-toggle') : null;
+  if (timeline && tlToggle) {
+    var tlText = tlToggle.querySelector('.tl-toggle-text');
+    var tlCount = timeline.querySelectorAll('.tl-extra').length;
+    function tlLabel(open) {
+      return open ? '收起历史版本' : ('中间省略 ' + tlCount + ' 个版本，展开查看');
+    }
+    if (tlCount === 0) {
+      var tlMore = timeline.querySelector('.tl-more');
+      if (tlMore) tlMore.hidden = true;
+    } else if (tlText) {
+      tlText.textContent = tlLabel(false);
+    }
+    tlToggle.addEventListener('click', function () {
+      var open = timeline.classList.toggle('is-open');
+      tlToggle.setAttribute('aria-expanded', String(open));
+      if (tlText) tlText.textContent = tlLabel(open);
+    });
+  }
 })();
