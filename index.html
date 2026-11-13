@@ -29,7 +29,7 @@
   "alternateName": "ZkDesk",
   "applicationCategory": "UtilitiesApplication",
   "operatingSystem": "Windows 10, Windows 11",
-  "softwareVersion": "1.3.0.1",
+  "softwareVersion": "1.3.0.5",
   "inLanguage": ["zh-CN", "en"],
   "description": "面向 Windows 10/11 的桌面整理工具：接管桌面图标与右键菜单，用「盒子」分区收纳（支持多标签、标签拖动与内容拖放），便签、待办、天气、热点资讯与工具箱常驻桌面，并提供在线屏保与在线更新。",
   "author": { "@type": "Organization", "name": "explus.work" },
@@ -98,7 +98,7 @@
     <div class="container hero-inner">
       <div class="hero-copy">
         <p class="eyebrow">
-          <span class="pill">v<span class="js-version">1.3.0.1</span></span>
+          <span class="pill">v<span class="js-version">1.3.0.5</span></span>
           <span class="pill pill-free">免费试用</span>
           <span class="eyebrow-text">Windows 10 / 11 · x64 · 简体中文 / English</span>
         </p>
@@ -417,173 +417,114 @@
       </header>
 
       <div class="changelog-grid">
-        <ol class="timeline">
-          <li class="reveal">
-            <div class="tl-head">
-              <span class="tl-version">v1.3.0.1</span>
-              <span class="tl-tag">修复版</span>
-            </div>
-            <p class="tl-sub">修复更新完成后无法从资源管理器往盒子/桌面拖文件</p>
-            <ul class="ticks">
-              <li>原因：更新需要提权时，更新器以管理员身份拉起主程序，主程序继承管理员权限；Windows 的 UIPI 会拦截资源管理器（普通权限）向管理员程序拖放文件</li>
-              <li>修复：更新器无论自身是什么权限，拉起主程序时都强制回到普通权限（中完整性）：优先复制资源管理器的登录令牌启动，失败再由 explorer.exe 保底启动</li>
-              <li>启动后会校验主程序令牌，确认不是管理员权限；两种方式都失败才判定启动失败并回滚</li>
-            </ul>
-          </li>
-          <li class="reveal">
-            <div class="tl-head">
-              <span class="tl-version">v1.3.0.0</span>
-              <span class="tl-tag">新功能</span>
-            </div>
-            <p class="tl-sub">在线主题：5 套主题一键下载与更新</p>
-            <ul class="ticks">
-              <li>设置中心「界面外观 → 主题」里直接浏览、下载、更新主题，不用再手动改 theme.json</li>
-              <li>首批 5 套在线主题：极夜玻璃、素纸微光、霓虹暮色、默认主题、柔和圆角；已装主题有新版本会提示「可更新」</li>
-              <li>主题格式升级 v4：盒子透明度成为你自己的设置，换主题不会再改掉已经调好的透明度</li>
-              <li>盒子和工具箱统一外观：圆角、毛玻璃、投影都按同一套主题参数绘制（工具箱新增投影）</li>
-              <li>「默认主题」：盒子与工具箱改为直角、无投影，并固定排在主题列表第一位</li>
-              <li>主题带背景图时能正常显示（之前会被毛玻璃盖住）</li>
-              <li>壁纸页图标与屏保区分开；屏保设置点一下不再卡顿</li>
-            </ul>
-          </li>
-          <li class="reveal">
-            <div class="tl-head">
-              <span class="tl-version">v1.2.2.3</span>
-              <span class="tl-tag">修复版</span>
-            </div>
-            <p class="tl-sub">壁纸页长路径不再出现横向滚动条</p>
-            <ul class="ticks">
-              <li>设置中心「壁纸」页：文件夹/图片路径过长时，底部不再出现横向滚动条</li>
-              <li>路径改为按窗口宽度自动中间省略，窗口拉窄或切换页面后会重新省略；鼠标悬停能看到完整路径</li>
-            </ul>
-          </li>
-          <li class="reveal">
-            <div class="tl-head">
-              <span class="tl-version">v1.2.2.2</span>
-              <span class="tl-tag">新功能</span>
-            </div>
-            <p class="tl-sub">设置中心新增「壁纸」页 + 主题 v3</p>
-            <ul class="ticks">
-              <li>设置中心新增「壁纸」页（放在屏保之后）：跟随 Windows 壁纸、纯色、渐变、图片、文件夹轮播，轮播还能设切换间隔</li>
-              <li>壁纸支持暗化与模糊调节，改完立即生效，不用重启</li>
-              <li>壁纸改为独立设置：不再由主题决定，换主题不会改掉你已经调好的壁纸</li>
-              <li>主题升级到 v3：主题只负责盒子和工具箱（含背景图），旧主题文件启动时自动迁移，观感不变</li>
-              <li>桌面右键菜单精简：去掉「设置」和「壁纸」入口，统一从「火星桌面 → 设置中心」进入</li>
-            </ul>
-          </li>
-          <li class="reveal tl-extra">
-            <div class="tl-head">
-              <span class="tl-version">v1.2.2.1</span>
-              <span class="tl-tag">修复版</span>
-            </div>
-            <p class="tl-sub">修复反馈失败文件写到桌面、且不会自动重试的问题</p>
-            <ul class="ticks">
-              <li>修复：反馈提交失败时，待重发的反馈文件曾被保存到程序的「当前工作目录」（从桌面快捷方式启动时就是桌面），桌面上会凭空多出 feedback_*.json，且这些反馈不会被每天自动重试</li>
-              <li>修复后：失败内容一律保存到本机数据目录 %LOCALAPPDATA%\ZkDesk\data\feedback\pending，之后每天自动重试一次，网络恢复后自动补发，成功后自动清理</li>
-              <li>程序启动时把工作目录固定到安装目录，不再受启动方式（桌面快捷方式 / 资源管理器右键 / 开始菜单）影响</li>
-              <li>反馈失败提示里显示文件保存位置；提交过程也会把落盘目录写进 startup.log，便于排查</li>
-            </ul>
-          </li>
-          <li class="tl-more reveal">
-            <button class="tl-toggle" type="button" aria-expanded="false">
-              <span class="tl-dots" aria-hidden="true">⋯</span>
-              <span class="tl-toggle-text">中间省略 6 个版本，展开查看</span>
-            </button>
-          </li>
-          <li class="reveal tl-extra">
-            <div class="tl-head">
-              <span class="tl-version">v1.2.2.0</span>
-              <span class="tl-tag">正式版</span>
-            </div>
-            <p class="tl-sub">反馈改为后台提交 + 更新器界面精简</p>
-            <ul class="ticks">
-              <li>反馈问题：点「提交」后窗口立即关闭，内容在后台发送，不再卡住界面（原来最长要等 30 秒）</li>
-              <li>反馈问题：成功 / 失败改用系统通知提醒，不再打开浏览器去 GitHub 页面——提交反馈不需要 GitHub 账号</li>
-              <li>反馈问题：失败时内容自动保存在本机数据目录，之后每天自动重试一次，网络恢复后自动补发，成功后自动清理</li>
-              <li>反馈问题：中继服务支持主备两个地址（Cloudflare Worker 主用、feedback.explus.work 备用），主用连不上时自动切换，国内网络成功率更高</li>
-              <li>反馈问题：失败原因会写明具体网络错误（例如「连接超时 12002」「无法连接服务器 12029」），便于判断是网络问题还是服务端问题</li>
-              <li>更新程序：安装阶段不再弹出「正在删除旧文件」进度框；下载进度框只在手动检查更新时出现，后台静默更新不再弹窗</li>
-              <li>更新程序：安装完成、新版本启动后弹出「更新完成」系统通知</li>
-            </ul>
-          </li>
-          <li class="reveal tl-extra">
-            <div class="tl-head">
-              <span class="tl-version">v1.2.1.0</span>
-              <span class="tl-tag">正式版</span>
-            </div>
-            <p class="tl-sub">高分屏跨屏缩放修复 + 中英文切换补齐</p>
-            <ul class="ticks">
-              <li>高分屏：设置中心 / 反馈问题 / 退出确认框从一块屏拖到另一块屏后，整窗按新屏重新缩放——字号、控件尺寸、输入框与下拉框高度、下拉列表行高全部同步</li>
-              <li>高分屏：右键菜单 / 托盘菜单在 150% 屏上按所在屏放大字号，不再固定 12px</li>
-              <li>高分屏：提示框（QMessageBox / 输入框等）拖到另一块屏后也会按新屏重算字号与尺寸</li>
-              <li>反馈问题：修复「反馈类型」下拉列表只显示两条、第三条「其他」被裁掉的问题</li>
-              <li>退出确认框：同一时间只存在一个（再次触发只把已打开的那个提到前面）</li>
-              <li>中英文切换：补齐英文翻译；屏保页状态、服务分组、更新历史、工具箱标题等在切换后立即刷新</li>
-              <li>桌面图标：新增「创建桌面图标」开关（默认开），桌面快捷方式收敛为唯一一个（升级或程序移动后改名/刷新，不再出现两个）</li>
-            </ul>
-          </li>
-          <li class="reveal tl-extra">
-            <div class="tl-head">
-              <span class="tl-version">v1.2.0.0</span>
-              <span class="tl-tag">正式版</span>
-            </div>
-            <p class="tl-sub">天气接入实况数据 + 新增近期地震</p>
-            <ul class="ticks">
-              <li>天气：当前天气改用中国天气网「实况」——天气现象、气温、湿度、风向风级、空气质量都取站点观测值，不再出现窗外大晴天、挂件却显示「阴」</li>
-              <li>天气：新增「近期地震」，只显示本省 300km 内、最近 7 天、M2 以上的地震，最多 3 条（震级 / 地名 / 时间 / 距离 / 深度）</li>
-              <li>天气：地震区右上角「中国地震台网」做成超链接，点一下打开官网看完整震情；中英文界面分别显示，右键菜单可关闭</li>
-              <li>多显示器：盒子、工具箱、待办、便签、天气与资讯挂件跨屏后按所在屏幕 DPI 自动缩放，不再一律按主屏 100% 显示</li>
-              <li>高分屏：设置中心 / 反馈 / 退出确认等对话框在 4K 屏上不再按 100% 打开；设置中心按打开位置所在屏构建，切标签不再改窗口大小</li>
-              <li>设置中心：右键菜单开关并入「基本设置」，更新相关并入「关于」，去掉底栏「关闭」，新增「双击隐藏桌面图标」</li>
-              <li>更新历史：只读取本地缓存，比当前程序新的版本标「（未安装）」；修复刚升级完仍显示上一版</li>
-              <li>稳定性：启动分阶段记录日志，卡住时自动抓 minidump；已有实例运行时不再弹模态框</li>
-            </ul>
-          </li>
-          <li class="reveal tl-extra">
-            <div class="tl-head">
-              <span class="tl-version">v1.1.2.0</span>
-              <span class="tl-tag">正式版</span>
-            </div>
-            <p class="tl-sub">盒子颜色角标 + 一批稳定性修复</p>
-            <ul class="ticks">
-              <li>盒子右键菜单顶部新增「颜色角标」：8 种圆形色块 + 清除，一键给项目标色，颜色随盒子保存、跨标签搬动时跟随</li>
-              <li>修复重命名后盒子内部条目顺序与显示不一致；修复删除条目、重建工具箱时的内存泄漏</li>
-              <li>修复设置中心每打开一次就泄漏一个窗口（开得越多越慢）、安装服务后等待就绪时界面假死</li>
-              <li>修复服务遇到参数类型不对的请求会崩溃退出；修复服务日志超长时可能崩溃或写乱码</li>
-              <li>更新：安装异常自动回滚、版本标记写失败不再误报成功、服务停不下来时直接取消更新、更新后服务启动失败会记录</li>
-              <li>修复反馈提交超时被误判为「提交成功」、在线屏保标记被误清空、网页目录改动导致屏保状态失真</li>
-            </ul>
-          </li>
-          <li class="reveal tl-extra">
-            <div class="tl-head">
-              <span class="tl-version">v1.1.0.1</span>
-              <span class="tl-tag">正式版</span>
-            </div>
-            <p class="tl-sub">系统设置支持普通权限修改</p>
-            <ul class="ticks">
-              <li>设置中心里需要管理员权限的系统设置不再灰掉：已提权直接改，普通权限经「ZkDesk 服务」完成</li>
-              <li>服务未安装时点击会提示安装一次（只需一次管理员授权），装好自动继续，之后不再弹 UAC</li>
-              <li>屏保「跳过锁屏界面」同样支持服务安装引导；取消安装只把勾选拨回，不再误报失败</li>
-              <li>修复服务端写注册表的类型名不匹配，导致经服务修改系统设置必然失败</li>
-            </ul>
-          </li>
-          <li class="reveal">
-            <div class="tl-head">
-              <span class="tl-version">v1.0.0.1</span>
-              <span class="tl-tag">正式版</span>
-            </div>
-            <p class="tl-sub">首个对外发布版本</p>
-            <ul class="ticks">
-              <li>新增设置中心「屏保」页：启用、等待时间、恢复需登录、保持常亮、跳过锁屏、网页目录与立即预览</li>
-              <li>新增「更新」分组：静默检查更新、立即更新与更新历史弹窗</li>
-              <li>版本变化自动记录更新历史，并保存检查时获取的更新说明</li>
-              <li>「关于」页重做：程序图标、版本号胶囊、分隔线与官网链接配色</li>
-              <li>桌面右键菜单改用真正的父文件夹 IContextMenu，修复公共桌面等路径菜单残缺</li>
-              <li>图标重命名编辑框尺寸、文本换行与基名选中规则对齐资源管理器</li>
-              <li>设置中心下拉框统一样式，选中项改为内缩圆角块</li>
-            </ul>
-          </li>
-        </ol>
+                <ol class="timeline">
+        <!-- 最新三个 -->
+        <li class="reveal">
+          <div class="tl-head">
+            <span class="tl-version">v1.3.0.5</span>
+            <span class="tl-tag">修复版</span>
+          </div>
+          <p class="tl-sub">修复：更新完成后可能报「更新后启动失败」，已回滚到旧版本</p>
+          <ul class="ticks">
+            <li>更新器以前只要发现新启动的主程序仍是管理员权限，就会把它杀掉并判失败；这台电脑上程序默认以管理员身份运行，降不到普通权限，于是每次更新都失败</li>
+            <li>现在：进程起来了就算成功（只是资源管理器拖放会受系统限制），不会再杀掉新版本、也不会白白回滚</li>
+            <li>更新前若还有旧实例在跑，先把它关掉，避免把旧进程误当成新进程</li>
+            <li>关主程序时先发「更新退出」消息，主程序收到就直接退出，不再弹「退出确认」框卡住更新</li>
+            <li>更新器的所有提示改成中文（检查更新、下载失败、安装失败、启动失败等）</li>
+            <li>其它同 1.3.0.4</li>
+          </ul>
+        </li>
+        <li class="reveal">
+          <div class="tl-head">
+            <span class="tl-version">v1.3.0.4</span>
+            <span class="tl-tag">修复版</span>
+          </div>
+          <p class="tl-sub">反馈：去掉阿里云函数计算(FC)的备用中继地址，反馈只走 Cloudflare Worker</p>
+          <ul class="ticks">
+            <li>原因：函数计算按量计费有「某小时内只要有调用、折算不足 0.01 元也按 0.01 元收」的兜底规则，自己点几下测试就会产生欠费；这条中继平时也基本用不到</li>
+            <li>想用别的中继地址，在 zkconfig.dat 的 [feedback] url2= 里自己加即可，不用改代码</li>
+            <li>其它同 1.3.0.3（便签右键等 Qt 自带文案跟随中英文、天气分时改中国天气网、分时解析闪退修复）</li>
+          </ul>
+        </li>
+        <li class="reveal">
+          <div class="tl-head">
+            <span class="tl-version">v1.3.0.3</span>
+            <span class="tl-tag">修复版</span>
+          </div>
+          <p class="tl-sub">修复：1.3.0.2 里便签右键菜单等 Qt 自带文案没有跟着中英文切换</p>
+          <ul class="ticks">
+            <li>构建时混入了旧的目标文件，Qt 中文翻译没装上；本版全量重新编译</li>
+            <li>便签右键菜单的 撤消 / 重做 / 剪切 / 复制 / 粘贴 / 删除 / 全选，以及标准对话框按钮，都会跟随中英文</li>
+            <li>天气（同 1.3.0.2）：分时（逐小时）改用中国天气网，和预报 / 实况 / 15 天同一数据源，国内直连、免 key</li>
+            <li>Open-Meteo 只保留日出日落和未来几天的日均 AQI（中国天气网不提供这两样）；它连不上时不再影响分时</li>
+            <li>修复：分时解析碰上中国天气网新的数据格式时会抛异常导致启动后闪退</li>
+            <li>界面：桌面右键，图标隐藏状态下不再多出「已关闭的便签」菜单</li>
+          </ul>
+        </li>
+
+        <!-- 中间折叠 -->
+        <li class="tl-more reveal">
+          <button class="tl-toggle" type="button" aria-expanded="false">
+            <span class="tl-dots" aria-hidden="true">⋯</span>
+            <span class="tl-toggle-text">中间省略 10 个版本，展开查看</span>
+          </button>
+        </li>
+
+        <!-- 最早三个 -->
+        <li class="reveal tl-extra">
+          <div class="tl-head">
+            <span class="tl-version">v1.1.0.1</span>
+            <span class="tl-tag">正式版</span>
+          </div>
+          <p class="tl-sub">系统设置支持普通权限修改</p>
+          <ul class="ticks">
+            <li>设置中心：需要管理员权限的系统设置不再灰掉——已提权直接改，普通权限经「ZkDesk 服务」完成；未安装服务时提示安装一次（只需一次管理员授权），装好自动继续，之后不再弹 UAC</li>
+            <li>屏保：跳过锁屏界面同样支持服务安装引导；取消安装只把勾选拨回，不再误报失败</li>
+            <li>修复：服务端写注册表的类型名不匹配，导致经服务修改系统设置必然失败（包括旧的跳过锁屏界面）</li>
+            <li>屏保页：在线屏保缩略图改为一行 4 个，「已下载 / 使用中」直接标在列表项上，右上角小勾跟随当前使用的屏保</li>
+            <li>屏保页：去掉重复的「当前使用：…」「当前屏保：…」两行提示</li>
+            <li>屏保：修复注册表指向的屏保文件已被删除时，列表仍显示「使用中」、点「立即预览」却退回内置页面的问题（现在会提示重新下载）</li>
+            <li>设置中心：高度不再接近满屏（页面可滚动），打开时在鼠标所在屏幕居中</li>
+          </ul>
+        </li>
+        <li class="reveal tl-extra">
+          <div class="tl-head">
+            <span class="tl-version">v1.0.0.1</span>
+            <span class="tl-tag">正式版</span>
+          </div>
+          <p class="tl-sub">首个对外发布版本</p>
+          <ul class="ticks">
+            <li>新增设置中心「屏保」页：启用、等待时间、恢复需登录、保持常亮、跳过锁屏、网页目录与立即预览</li>
+            <li>新增「更新」分组：静默检查更新、立即更新与更新历史弹窗</li>
+            <li>版本变化自动记录更新历史，并保存检查时获取的更新说明</li>
+            <li>「关于」页重做：程序图标、版本号胶囊、分隔线与官网链接配色</li>
+            <li>桌面右键菜单改用真正的父文件夹 IContextMenu，修复公共桌面等路径菜单残缺</li>
+            <li>图标重命名编辑框尺寸、文本换行与基名选中规则对齐资源管理器</li>
+            <li>设置中心下拉框统一样式，选中项改为内缩圆角块</li>
+          </ul>
+        </li>
+        <li class="reveal tl-extra">
+          <div class="tl-head">
+            <span class="tl-version">v1.0.0.0</span>
+            <span class="tl-tag">正式版</span>
+          </div>
+          <p class="tl-sub">首个稳定版</p>
+          <ul class="ticks">
+            <li>桌面接管：图标网格 / 选中 / 拖拽 / 重命名与资源管理器一致</li>
+            <li>盒子：桌面分区收纳，多标签页、外观定制、布局记忆</li>
+            <li>便签：富文本、图片、颜色/锁定/置顶，关闭后可从菜单恢复</li>
+            <li>待办清单：多清单、子任务、截止日期、到期提醒、标签与搜索</li>
+            <li>天气与热点资讯：实时天气/多天预报，多来源热榜与搜索</li>
+            <li>工具箱：定时关机等内置工具，可添加外部程序</li>
+            <li>壁纸与主题：跟随系统壁纸，纯色/渐变/图片/轮播，theme.json 可改</li>
+            <li>设置中心：基本设置 / 界面外观 / 快捷键 / 屏保 / 系统设置 / 关于</li>
+            <li>屏保：网页屏保，自动注册为系统屏保，支持常亮与跳过锁屏界面</li>
+            <li>在线更新：签名校验、全量/增量包、断点续传、服务静默更新、失败回滚</li>
+            <li>更新体验：检查更新结果提示、更新历史（版本 + 日期 + 更新说明）</li>
+            <li>多语言：简体中文 / English 即时切换</li>
+          </ul>
+        </li>
+      </ol>
 
         <figure class="shot shot-inline reveal">
           <button class="shot-frame" type="button" data-lightbox="assets/img/shot-update.png" data-caption="更新历史 · 版本变化自动记录">
@@ -658,7 +599,7 @@
     <div class="container cta-inner reveal">
       <img class="cta-logo" src="assets/img/logo.svg" alt="" width="72" height="72">
       <div class="cta-copy">
-        <h2>火星桌面 <span class="js-version">1.3.0.1</span></h2>
+        <h2>火星桌面 <span class="js-version">1.3.0.5</span></h2>
         <p>免费试用，无需注册账号。下载全量包解压即用，后续版本可在程序内检查更新。</p>
       </div>
       <div class="cta-actions">
@@ -702,7 +643,7 @@
         <a href="https://github.com/jojocaptain520/jojocaptain520.github.io" target="_blank" rel="noopener">GitHub 仓库</a>
         <a href="terms.html">用户协议</a>
         <a href="privacy.html">隐私政策</a>
-        <span class="footer-muted">版本 <span class="js-version">1.3.0.1</span> · 免费试用</span>
+        <span class="footer-muted">版本 <span class="js-version">1.3.0.5</span> · 免费试用</span>
       </div>
     </nav>
   </div>
