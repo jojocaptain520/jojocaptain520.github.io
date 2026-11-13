@@ -60,7 +60,6 @@
       <a href="#gallery">界面</a>
       <a href="#saver">屏保</a>
       <a href="#highlights">深入</a>
-      <a href="#changelog">更新日志</a>
       <a href="#faq">常见问题</a>
     </nav>
 
@@ -84,7 +83,6 @@
     <a href="#gallery">界面</a>
     <a href="#saver">屏保</a>
     <a href="#highlights">深入</a>
-    <a href="#changelog">更新日志</a>
     <a href="#faq">常见问题</a>
     <a href="https://github.com/jojocaptain520/jojocaptain520.github.io" target="_blank" rel="noopener">GitHub</a>
   </div>
@@ -408,134 +406,7 @@
     </div>
   </section>
 
-  <!-- ============ 更新日志 ============ -->
-  <section class="section section-alt" id="changelog">
-    <div class="container narrow">
-      <header class="section-head reveal">
-        <p class="kicker">更新日志</p>
-        <h2>版本记录</h2>
-      </header>
-
-      <div class="changelog-grid">
-                        <ol class="timeline">
-        <!-- 最新三个 -->
-        <li class="reveal">
-          <div class="tl-head">
-            <span class="tl-version">v1.3.0.6</span>
-            <span class="tl-tag">修复版</span>
-          </div>
-          <p class="tl-sub">天气：星期列加宽，体感无数据时显示 "--"</p>
-          <ul class="ticks">
-            <li>星期/日期列宽 58→72，避免「明天 11-14」「周一 11-16」被省略</li>
-            <li>体感温度新增有效标志：数据源没给体感时显示 "--"，不再编造 0°</li>
-            <li>Open-Meteo 不可用时，中国天气网主数据（预报/温度/实况/AQI）仍可用，不再整体失败</li>
-            <li>其它同 1.3.0.5</li>
-          </ul>
-        </li>
-        <li class="reveal">
-          <div class="tl-head">
-            <span class="tl-version">v1.3.0.5</span>
-            <span class="tl-tag">修复版</span>
-          </div>
-          <p class="tl-sub">修复：更新完成后可能报「更新后启动失败」，已回滚到旧版本</p>
-          <ul class="ticks">
-            <li>更新器以前只要发现新启动的主程序仍是管理员权限，就会把它杀掉并判失败；这台电脑上程序默认以管理员身份运行，降不到普通权限，于是每次更新都失败</li>
-            <li>现在：进程起来了就算成功（只是资源管理器拖放会受系统限制），不会再杀掉新版本、也不会白白回滚</li>
-            <li>更新前若还有旧实例在跑，先把它关掉，避免把旧进程误当成新进程</li>
-            <li>关主程序时先发「更新退出」消息，主程序收到就直接退出，不再弹「退出确认」框卡住更新</li>
-            <li>更新器的所有提示改成中文（检查更新、下载失败、安装失败、启动失败等）</li>
-            <li>其它同 1.3.0.4</li>
-          </ul>
-        </li>
-        <li class="reveal">
-          <div class="tl-head">
-            <span class="tl-version">v1.3.0.4</span>
-            <span class="tl-tag">修复版</span>
-          </div>
-          <p class="tl-sub">反馈：去掉阿里云函数计算(FC)的备用中继地址，反馈只走 Cloudflare Worker</p>
-          <ul class="ticks">
-            <li>原因：函数计算按量计费有「某小时内只要有调用、折算不足 0.01 元也按 0.01 元收」的兜底规则，自己点几下测试就会产生欠费；这条中继平时也基本用不到</li>
-            <li>想用别的中继地址，在 zkconfig.dat 的 [feedback] url2= 里自己加即可，不用改代码</li>
-            <li>其它同 1.3.0.3（便签右键等 Qt 自带文案跟随中英文、天气分时改中国天气网、分时解析闪退修复）</li>
-          </ul>
-        </li>
-
-        <!-- 中间折叠 -->
-        <li class="tl-more reveal">
-          <button class="tl-toggle" type="button" aria-expanded="false">
-            <span class="tl-dots" aria-hidden="true">⋯</span>
-            <span class="tl-toggle-text">中间省略 11 个版本，展开查看</span>
-          </button>
-        </li>
-
-        <!-- 最早三个 -->
-        <li class="reveal tl-extra">
-          <div class="tl-head">
-            <span class="tl-version">v1.1.0.1</span>
-            <span class="tl-tag">正式版</span>
-          </div>
-          <p class="tl-sub">系统设置支持普通权限修改</p>
-          <ul class="ticks">
-            <li>设置中心：需要管理员权限的系统设置不再灰掉——已提权直接改，普通权限经「ZkDesk 服务」完成；未安装服务时提示安装一次（只需一次管理员授权），装好自动继续，之后不再弹 UAC</li>
-            <li>屏保：跳过锁屏界面同样支持服务安装引导；取消安装只把勾选拨回，不再误报失败</li>
-            <li>修复：服务端写注册表的类型名不匹配，导致经服务修改系统设置必然失败（包括旧的跳过锁屏界面）</li>
-            <li>屏保页：在线屏保缩略图改为一行 4 个，「已下载 / 使用中」直接标在列表项上，右上角小勾跟随当前使用的屏保</li>
-            <li>屏保页：去掉重复的「当前使用：…」「当前屏保：…」两行提示</li>
-            <li>屏保：修复注册表指向的屏保文件已被删除时，列表仍显示「使用中」、点「立即预览」却退回内置页面的问题（现在会提示重新下载）</li>
-            <li>设置中心：高度不再接近满屏（页面可滚动），打开时在鼠标所在屏幕居中</li>
-          </ul>
-        </li>
-        <li class="reveal tl-extra">
-          <div class="tl-head">
-            <span class="tl-version">v1.0.0.1</span>
-            <span class="tl-tag">正式版</span>
-          </div>
-          <p class="tl-sub">首个对外发布版本</p>
-          <ul class="ticks">
-            <li>新增设置中心「屏保」页：启用、等待时间、恢复需登录、保持常亮、跳过锁屏、网页目录与立即预览</li>
-            <li>新增「更新」分组：静默检查更新、立即更新与更新历史弹窗</li>
-            <li>版本变化自动记录更新历史，并保存检查时获取的更新说明</li>
-            <li>「关于」页重做：程序图标、版本号胶囊、分隔线与官网链接配色</li>
-            <li>桌面右键菜单改用真正的父文件夹 IContextMenu，修复公共桌面等路径菜单残缺</li>
-            <li>图标重命名编辑框尺寸、文本换行与基名选中规则对齐资源管理器</li>
-            <li>设置中心下拉框统一样式，选中项改为内缩圆角块</li>
-          </ul>
-        </li>
-        <li class="reveal tl-extra">
-          <div class="tl-head">
-            <span class="tl-version">v1.0.0.0</span>
-            <span class="tl-tag">正式版</span>
-          </div>
-          <p class="tl-sub">首个稳定版</p>
-          <ul class="ticks">
-            <li>桌面接管：图标网格 / 选中 / 拖拽 / 重命名与资源管理器一致</li>
-            <li>盒子：桌面分区收纳，多标签页、外观定制、布局记忆</li>
-            <li>便签：富文本、图片、颜色/锁定/置顶，关闭后可从菜单恢复</li>
-            <li>待办清单：多清单、子任务、截止日期、到期提醒、标签与搜索</li>
-            <li>天气与热点资讯：实时天气/多天预报，多来源热榜与搜索</li>
-            <li>工具箱：定时关机等内置工具，可添加外部程序</li>
-            <li>壁纸与主题：跟随系统壁纸，纯色/渐变/图片/轮播，theme.json 可改</li>
-            <li>设置中心：基本设置 / 界面外观 / 快捷键 / 屏保 / 系统设置 / 关于</li>
-            <li>屏保：网页屏保，自动注册为系统屏保，支持常亮与跳过锁屏界面</li>
-            <li>在线更新：签名校验、全量/增量包、断点续传、服务静默更新、失败回滚</li>
-            <li>更新体验：检查更新结果提示、更新历史（版本 + 日期 + 更新说明）</li>
-            <li>多语言：简体中文 / English 即时切换</li>
-          </ul>
-        </li>
-      </ol>
-
-        <figure class="shot shot-inline reveal">
-          <button class="shot-frame" type="button" data-lightbox="assets/img/shot-update.png" data-caption="更新历史 · 版本变化自动记录">
-            <img src="assets/img/shot-update.png" width="864" height="852" alt="更新历史弹窗：版本号、日期与更新说明" decoding="async">
-            <span class="shot-zoom" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8.5v5M8.5 11h5"/></svg>
-            </span>
-          </button>
-          <figcaption><strong>更新历史</strong><span>每次版本变化自动记录，版本号 + 日期 + 更新说明</span></figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
+  
 
   <!-- ============ 系统要求 + FAQ ============ -->
   <section class="section" id="faq">
@@ -628,7 +499,6 @@
         <a href="#features">功能</a>
         <a href="#gallery">界面</a>
         <a href="#saver">屏保</a>
-        <a href="#changelog">更新日志</a>
       </div>
       <div>
         <h4>支持</h4>
