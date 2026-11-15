@@ -1,4 +1,4 @@
-/* 火星桌面 ZkDesk — 官网交互（零依赖） */
+/* 火星桌面 marsDesk — 官网交互（零依赖） */
 (function () {
   'use strict';
 

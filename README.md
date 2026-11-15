@@ -1,6 +1,6 @@
-# 火星桌面 ZkDesk — 官方网站
+# 火星桌面 marsDesk — 官方网站
 
-火星桌面（ZkDesk）的产品官网，纯静态多页站点，**零构建、零依赖、无外部 CDN**，由 GitHub Pages 托管，自定义域名 <https://www.explus.work>。
+火星桌面（marsDesk）的产品官网，纯静态多页站点，**零构建、零依赖、无外部 CDN**，由 GitHub Pages 托管，自定义域名 <https://www.explus.work>。
 
 ## 目录
 
